@@ -13,9 +13,9 @@ Ship.o: Ship.cpp Ship.h
 	g++ -c Ship.cpp
 ShipManager.o: ShipManager.cpp ShipManager.h
 	g++ -c ShipManager.cpp
-Game.o: Game.cpp Game.h Ability.h AbilityManager.h Field.h Ship.h ShipManager.h Exceptions.h GameState.h
+Game.o: Game.cpp Game.h GameState.h
 	g++ -c Game.cpp
-GameState.o: GameState.cpp GameState.h Game.h
+GameState.o: GameState.cpp GameState.h Ability.h AbilityManager.h Field.h Ship.h ShipManager.h Exceptions.h 
 	g++ -c GameState.cpp
 clean:
 	rm -rf *.o

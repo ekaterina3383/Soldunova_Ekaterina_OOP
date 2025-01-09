@@ -17,5 +17,6 @@ public:
 	int GetNumberOfAbilities();
 	bool ApplicationOfAbilities(Field field, ShipManager manager);
 	int GetLength();
+	void DeleteAbility();
 };
 #endif

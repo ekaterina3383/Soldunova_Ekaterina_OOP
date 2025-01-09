@@ -9,6 +9,7 @@ using namespace std;
 #include "GameState.h"
 
 int main(){
-	Game game;
+	GameState game_state;
+	Game game(game_state);
 	game.StartGame();
 }

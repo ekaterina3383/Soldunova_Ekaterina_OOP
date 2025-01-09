@@ -23,8 +23,9 @@ bool AbilityManager::ApplicationOfAbilities(Field field, ShipManager manager){
 		throw NoAbilityException{};
 	}
 	unique_ptr<Ability> ability = move(queue_of_abilities.back());
-       	ability->ApplyingAbility(field, manager);
+       	bool res = ability->ApplyingAbility(field, manager);
 	queue_of_abilities.pop();
-	return 1;
+	return res;
 }
 int AbilityManager::GetLength(){return queue_of_abilities.size();}
+void AbilityManager::DeleteAbility(){queue_of_abilities.pop();}

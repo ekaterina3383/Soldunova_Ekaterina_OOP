@@ -77,8 +77,14 @@ Status Field::GetCellStatus(int x, int y){return cells[y][x].status;}
 void Field::ChangeStatusShip(int x, int y){cells[y][x].status = Status::Ship;}
 void Field::ChangeStatusEmpty(int x, int y){cells[y][x].status = Status::Empty;}
 void Field::ChangeStatusUnknown(int x, int y){cells[y][x].status = Status::Unknown;}
-void Field::ChangeFieldType(){field_type = FieldType::Enemy;}
-ShipStatus Field::FieldGetShipStatus(int x, int y){return (*cells[y][x].ship).GetShipStatus();}
+void Field::ChangeFieldType(){
+	if (field_type == FieldType::Enemy){field_type = FieldType::Users;}
+	if (field_type == FieldType::Users){field_type = FieldType::Enemy;}	
+}
+ShipStatus Field::FieldGetShipStatus(int x, int y){
+	if (cells[y][x].ship){return (*cells[y][x].ship).GetShipStatus();}
+	return ShipStatus::Intact;
+}
 void Field::Draw(){
 	cout << "    ";
 	for (int i = 0; i < width; i++) {cout << " " << i << " ";}

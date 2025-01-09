@@ -7,7 +7,12 @@ Ship::Ship(int user_lenght, Orientation user_orientation, vector<int> segments){
 		vector<int> statuses(lenght, 2);
 		segments_status = statuses;
 	}
-	else {segments_status = segments;}
+	else {
+		segments_status = segments;
+		//for(int i = 0; i < segments.size(); i++){
+		//	cout << segments_status[i] << segments[i] << endl;;
+		//}	
+	}
 }
 void Ship::TurnShip(){
 	if (orientation == Orientation::Vertical){orientation = Orientation::Horizontal;}

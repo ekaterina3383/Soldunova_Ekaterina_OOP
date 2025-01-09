@@ -11,8 +11,8 @@ bool DoubleDamage::ApplyingAbility(Field field, ShipManager manager){
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
-	bool x_right = (x>=0)&&(x+1<field.GetWidth());
-	bool y_right = (y>=0)&&(y+1<field.GetHeight());
+	bool x_right = (x>=0)&&(x<field.GetWidth());
+	bool y_right = (y>=0)&&(y<field.GetHeight());
 	while(!(x_right||y_right)){
 		cout << "The entered coordinates go beyond the boundaries of the field, please try again: ";
 		while(!(cin >> x >> y)){
@@ -20,8 +20,8 @@ bool DoubleDamage::ApplyingAbility(Field field, ShipManager manager){
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
-		x_right = (x>=0)&&(x+1<field.GetWidth());
-		y_right = (y>=0)&&(y+1<field.GetHeight());
+		x_right = (x>=0)&&(x<field.GetWidth());
+		y_right = (y>=0)&&(y<field.GetHeight());
 	}
 	Ship* ship = field.GetShip(x, y);
 	if (field.GetShip(x, y)){
